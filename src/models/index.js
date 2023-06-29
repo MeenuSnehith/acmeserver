@@ -27,7 +27,7 @@ fs
     db[model.name] = model
   })
 
-
+//vivek
   db.sequelize = sequelize
   db.Sequelize = Sequelize
   
