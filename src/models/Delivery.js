@@ -30,5 +30,6 @@ module.exports = (sequelize, DataTypes) =>
         status: DataTypes.INTEGER
     },
     {
+        //mahita
       initialAutoIncrement: 4000,
     })
