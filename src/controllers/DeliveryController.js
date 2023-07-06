@@ -46,6 +46,19 @@ module.exports = {
       })
     }
   },
+  async getDeliveryById (req, res) {
+    try {
+      const delivery = await Delivery.findOne({
+        where: { id: req.params.id }
+      })
+      console.log("Found delivery")
+      res.send(delivery)
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error has occured trying to get delivery'
+      })
+    }
+  },
   async deleteDelivery (req, res) {
     try {
       const delivery = await Delivery.destroy({
@@ -64,8 +77,23 @@ module.exports = {
     console.log(req.params.id)
     try {
       const delivery = await Delivery.update({
-        HotelName: req.body.HotelName,
-        ImageURL: req.body.ImageURL
+        pickupCustomerName: req.body.pickupCustomerName,
+        pickupCustomerId: req.body.pickupCustomerId,
+        pickupAvn: req.body.pickupAvn,
+        pickupStreet: req.body.pickupStreet,
+        pickupTime: req.body.pickupTime,
+        pickupRoute: req.body.pickupRoute,
+        pickupActualTime: req.body.pickupActualTime,
+        deliveryCustomerName: req.body.deliveryCustomerName,
+        deliveryCustomerId: req.body.deliveryCustomerId,
+        deliveryAvn: req.body.deliveryAvn,
+        deliveryStreet: req.body.deliveryStreet,
+        deliveryTime: req.body.deliveryTime,
+        deliveryRoute: req.body.deliveryRoute,
+        deliveryActualTime: req.body.deliveryActualTime,
+        deliveryStatus: req.body.deliveryStatus,
+        orderTakenBy: req.body.orderTakenBy,
+        estimatedPrice: req.body.estimatedPrice
       } ,{
         where:{ id: req.params.id }
       })
