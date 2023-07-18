@@ -21,12 +21,14 @@ module.exports = (sequelize, DataTypes) =>
         deliveryTime: DataTypes.DATE,
         deliveryRoute : DataTypes.STRING,
         deliveryActualTime: DataTypes.DATE,
-        deliveryStatus : DataTypes.STRING,
+        deliveryTimeMin: DataTypes.INTEGER,
 
         orderTakenBy: DataTypes.STRING,
         estimatedDeliveryTime: DataTypes.DATE,
         estimatedPrice: DataTypes.INTEGER,
-
+        estMin: DataTypes.INTEGER,
+        isBonus: DataTypes.STRING,
+        assignedTime: DataTypes.DATE,
         status: DataTypes.INTEGER
     },
     {

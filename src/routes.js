@@ -7,12 +7,12 @@ module.exports=(app) => {
         AuthenticationController.register)
     app.post('/login',
         AuthenticationController.login)
-    app.get('/allUsers',
+    app.get('/users',
         AuthenticationController.getAllUsers)
     app.delete('/user/:id',
         AuthenticationController.deleteUser)
 
-    app.get('/allDeliverys',
+    app.get('/deliverys',
         DeliveryController.getAllDeliverys)
     app.post('/addDelivery',
         DeliveryController.addDelivery)
@@ -24,8 +24,10 @@ module.exports=(app) => {
         DeliveryController.updateDelivery)
     app.delete('/delivery/:id',
         DeliveryController.deleteDelivery)
+    app.post('/shortestPath',
+        DeliveryController.GetShortestDistance)
     
-    app.get('/allCustomers',
+    app.get('/customers',
         CustomerController.getAllCustomer)
     app.post('/addCustomer',
         CustomerController.addCustomer)
