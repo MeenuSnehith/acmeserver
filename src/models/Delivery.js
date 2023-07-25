@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) =>
         deliveryActualTime: DataTypes.DATE,
         deliveryTimeMin: DataTypes.INTEGER,
 
+        backToOfficeRoute : DataTypes.STRING,
+
         orderTakenBy: DataTypes.STRING,
         estimatedDeliveryTime: DataTypes.DATE,
         estimatedPrice: DataTypes.INTEGER,

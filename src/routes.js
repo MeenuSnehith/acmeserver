@@ -1,6 +1,7 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const CustomerController = require('./controllers/CustomerController')
 const DeliveryController = require('./controllers/DeliveryController')
+const ConfigController = require('./controllers/ConfigController')
 
 module.exports=(app) => {
     app.post('/register', 
@@ -14,7 +15,7 @@ module.exports=(app) => {
 
     app.get('/deliverys',
         DeliveryController.getAllDeliverys)
-    app.post('/addDelivery',
+    app.post('/delivery',
         DeliveryController.addDelivery)
     app.get('/deliveryById/:id',
         DeliveryController.getDeliveryById)
@@ -29,8 +30,15 @@ module.exports=(app) => {
     
     app.get('/customers',
         CustomerController.getAllCustomer)
-    app.post('/addCustomer',
+    app.post('/customer',
         CustomerController.addCustomer)
     app.delete('/customer/:id',
         CustomerController.deleteCustomer)
+
+    app.get('/configs',
+        ConfigController.getAllConfigs)
+    app.post('/config',
+        ConfigController.addConfig)
+    app.put('/config/:id',
+        ConfigController.updateConfig)
 }
