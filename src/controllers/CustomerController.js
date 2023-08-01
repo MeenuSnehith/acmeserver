@@ -74,5 +74,6 @@ module.exports = {
         error: 'An error while trying to update Customer: ' + err
       })
     }
-  }
+  },
+  
 }
