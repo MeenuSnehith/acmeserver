@@ -13,4 +13,4 @@ module.exports = (sequelize, DataTypes) =>
     {
       initialAutoIncrement: 1000,
     })
-    //vivek
+    //vivek2
