@@ -27,7 +27,13 @@ module.exports=(app) => {
         DeliveryController.deleteDelivery)
     app.post('/shortestPath',
         DeliveryController.GetShortestDistance)
-    
+    app.post('/customerReportByID',
+        DeliveryController.getCustomerReportByID)
+    app.post('/customerReports',
+        DeliveryController.getCustomerReports)
+    app.post('/deliveryReportByID',
+        DeliveryController.getDeliveryReportByID)
+
     app.get('/customers',
         CustomerController.getAllCustomer)
     app.post('/customer',

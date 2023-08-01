@@ -1,4 +1,5 @@
 const {Delivery} = require('../models')
+const { Op } = require("sequelize");
 
 module.exports = {
   async addDelivery (req, res) {
@@ -26,6 +27,85 @@ module.exports = {
     } catch (err) {
       res.status(500).send({
         error: 'An error has occured trying to get delivery'
+      })
+    }
+  },
+  async getCustomerReportByID (req, res) {
+    try {
+      console.log(req.body)
+      const delivery = await Delivery.findAll({
+        Limit:50,
+        where: {
+          pickupTime: {
+            [Op.between]: [req.body.startDate, req.body.endDate],
+           },
+           pickupCustomerId: req.body.customerID
+        }
+      })
+      console.log("Found delivery")
+      res.send(delivery)
+    } catch (err) {
+      res.status(500).send({
+        error: err
+      })
+    }
+  },
+  async getCustomerReports (req, res) {
+    try {
+      console.log(req.body)
+      const delivery = await Delivery.findAll({
+        Limit:50,
+        where: {
+          pickupTime: {
+            [Op.between]: [req.body.startDate, req.body.endDate],
+           }
+        }
+      })
+      console.log("Found delivery")
+      res.send(delivery)
+    } catch (err) {
+      res.status(500).send({
+        error: err
+      })
+    }
+  },
+  async getDeliveryReportByID (req, res) {
+    try {
+      console.log(req.body)
+      const delivery = await Delivery.findAll({
+        Limit:50,
+        where: {
+          pickupTime: {
+            [Op.between]: [req.body.startDate, req.body.endDate]
+           },
+           orderTakenBy: req.body.orderTakenBy
+        }
+      })
+      console.log("Found delivery")
+      res.send(delivery)
+    } catch (err) {
+      res.status(500).send({
+        error: err
+      })
+    }
+  },
+  async getDeliveryReports (req, res) {
+    try {
+      console.log(req.body)
+      console.log(new Date())
+      const delivery = await Delivery.findAll({
+        Limit:50,
+        where: {
+          pickupTime: {
+            [Op.between]: [req.body.startDate, req.body.endDate],
+           }
+        }
+      })
+      console.log("Found delivery")
+      res.send(delivery)
+    } catch (err) {
+      res.status(500).send({
+        error: err
       })
     }
   },
